@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UTIS</string>
+    <string name="login_login">Фамилия</string>
+    <string name="login_password">Пароль</string>
 </resources>
