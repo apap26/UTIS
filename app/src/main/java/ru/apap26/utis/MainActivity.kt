@@ -18,14 +18,18 @@ class MainActivity : AppCompatActivity() {
     lateinit var mSettings:SharedPreferences // Поля класса для последуещей инициализации в классе
     lateinit var login_save:String
     lateinit var password_save:String
-    val editSettings = mSettings.edit()
+    lateinit var editSettings:SharedPreferences.Editor // = mSettings.edit()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE) // Получаем настройки
+        editSettings = mSettings.edit()
          // Это здесь не нужно))))
         if(mSettings.contains(APP_PREFERENCES_LOGIN) && mSettings.contains(APP_PREFERENCES_PASSWORD)){
             login_save = mSettings.getString(APP_PREFERENCES_LOGIN, errorValue).toString() // Почему же я вызываю метод конвертации к строке, у метода который возвращяет строку. Вопрос риторический
             password_save = mSettings.getString(APP_PREFERENCES_PASSWORD, errorValue).toString()
+        }else{
+            login_save = errorValue
+            password_save = errorValue
         }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
