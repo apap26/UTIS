@@ -1,6 +1,7 @@
 package ru.apap26.utis
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences // Настройки
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -49,5 +50,10 @@ class MainActivity : AppCompatActivity() {
         editSettings.putString(APP_PREFERENCES_LOGIN, login_save)
         editSettings.putString(APP_PREFERENCES_PASSWORD, password_save)
         editSettings.apply()
+        // Place from autch method
+
+        // End place from autch method
+        var intent = Intent(this, UTIS::class.java)
+        startActivity(intent)
     }
 }
