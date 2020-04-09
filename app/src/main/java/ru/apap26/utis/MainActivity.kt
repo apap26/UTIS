@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun ClickOnLogin_btn(v:View){
+        progressBar.visibility = View.VISIBLE // Вы этого не видели
         result.setText("")
         login_save = login.text.toString()
         password_save = password.text.toString()
@@ -65,20 +66,24 @@ class MainActivity : AppCompatActivity() {
                         editSettings.putString(APP_PREFERENCES_LOGIN, login_save)
                         editSettings.putString(APP_PREFERENCES_PASSWORD, password_save)
                         editSettings.apply()
+                        progressBar.visibility = View.INVISIBLE
                         var intent = Intent(this, UTIS::class.java)
                         startActivity(intent)
                     }
                 } else {
                     runOnUiThread {
+                        progressBar.visibility = View.INVISIBLE
                         result.setText("НЕПРАВИЛЬНО, ПОПРОБУЙ ЕЩЕ РАЗ!")
                     }
                 }
             }catch (e: ConnectException){
                 runOnUiThread{
+                    progressBar.visibility = View.INVISIBLE
                     result.setText("Ошибка подключения к серверу")
                 }
             }catch (e:SocketTimeoutException){
                 runOnUiThread{
+                    progressBar.visibility = View.INVISIBLE
                     result.setText("Ошибка подключения к серверу")
                 }
             }
