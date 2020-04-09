@@ -53,6 +53,13 @@
             android:layout_height="wrap_content"
             android:text="Вход" />
 
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="139dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorError" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
